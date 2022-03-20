@@ -1,0 +1,22 @@
+import Image from 'next/image';
+
+function NavItems({ Icon, title, onClick, active, Down }) {
+  return (
+    <div
+      className={`flex flex-col text-gray-500 w-full items-center cursor-pointer group md:hover:border-b-2 ${
+        active && 'md:border-b-2 text-gray-800'
+      } border-gray-600 md:pb-3 md:mt-2 hover:text-gray-800`}
+      onClick={onClick}
+    >
+      {Icon && (
+        <Icon className="h-5 w-5 group-hover:scale-110 transition duration-150 ease-in rounded-full" />
+      )}
+
+      <h3 className="hidden xl:flex items-center">
+        {title} {Down && <Down className="h-4 w-4 text-black" />}
+      </h3>
+    </div>
+  );
+}
+
+export default NavItems;
